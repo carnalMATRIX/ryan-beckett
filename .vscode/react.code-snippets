@@ -1,0 +1,14 @@
+{
+  "className attribute": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": [
+      "class",
+      "cla",
+      "classname"
+    ],
+    "body": [
+      "className=\"$1\""
+    ],
+    "description": "Inserts className=\"\" in React JSX/TSX"
+  }
+}
