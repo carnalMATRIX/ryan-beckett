@@ -46,11 +46,64 @@ const crimson = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "RYAN BECKETT // AKL NZ",
+  metadataBase: new URL("https://beckett.vercel.app"),
+  title: {
+    default: "Ryan Beckett // Developer, Designer, Photographer",
+    template: "%s | Ryan Beckett",
+  },
   description:
-    "Step into the world of Ryan Beckett, a multifaceted creative force. As a developer, designer, and photographer, Ryan crafts digital experiences that captivate and inspire. Explore his portfolio to witness the seamless blend of technology and artistry that defines his work.",
+    "Step into the world of Ryan Beckett, a multifaceted creative force. As a developer, designer, and photographer based in Auckland, New Zealand, Ryan crafts digital experiences that captivate and inspire. Explore his portfolio to witness the seamless blend of technology and artistry that defines his work.",
+  keywords: [
+    "Ryan Beckett",
+    "Developer",
+    "UX Designer",
+    "Photographer",
+    "Creative Portfolio",
+    "Auckland",
+    "New Zealand",
+    "Web Development",
+    "UI/UX Design",
+  ],
+  authors: [{ name: "Ryan Beckett", url: "https://beckett.vercel.app" }],
+  creator: "Ryan Beckett",
+  publisher: "Ryan Beckett",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_NZ",
+    url: "https://beckett.vercel.app",
+    title: "Ryan Beckett // Developer, Designer, Photographer",
+    description:
+      "Step into the world of Ryan Beckett, a multifaceted creative force. As a developer, designer, and photographer, Ryan crafts digital experiences that captivate and inspire.",
+    siteName: "Ryan Beckett",
+    images: [
+      {
+        url: "/images/hero/hero_bg.JPG",
+        width: 1200,
+        height: 630,
+        alt: "Ryan Beckett Portfolio Banner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Beckett // Developer, Designer, Photographer",
+    description:
+      "Explore the portfolio of Ryan Beckett, a developer, designer, and photographer based in Auckland, New Zealand.",
+    images: ["/images/hero/hero_bg.JPG"],
+  },
   verification: {
-    google: "xKOSvsWL_ZLZKTVJyTVXKUEpLhglLV1AH7uBXx3rpYk",
+    google: "VLoKkZLrIe1NuhvrhsNP4uaj6JH1gSpymmKB1Phug5s",
   },
 };
 

@@ -7,6 +7,20 @@ import type {
   Project as PayloadProject,
   Media as PayloadMedia,
 } from "@/payload-types";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects Archive",
+  description: "Browse the dynamic archive of web design, development, and photography projects by Ryan Beckett.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Projects Archive | Ryan Beckett",
+    description: "Browse the dynamic archive of web design, development, and photography projects by Ryan Beckett.",
+    url: "https://beckett.vercel.app/projects",
+  },
+};
 
 async function ProjectsPage() {
   const payload = await getCachedPayload();
