@@ -54,7 +54,7 @@ export default function Hero({
         </div>
 
         <div className="px-0.5 text-base-light">
-          <p className="text-center block md:hidden text-sm max-w-md mx-auto text-zinc-300 font-light mb-4">
+          <p className="text-center block md:hidden text-sm max-w-md mx-auto text-zinc-300 font-light mb-1">
             {description}
           </p>
 
