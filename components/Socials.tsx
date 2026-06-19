@@ -43,7 +43,7 @@ export default function Socials({ type, spotifyProfileUrl }: SocialsProps) {
 
   // Mobile layout
   return (
-    <div className="flex md:hidden justify-center items-center gap-8 py-4">
+    <div className="flex md:hidden flex-col-reverse justify-center items-end gap-6 py-4">
       {updatedSocials.map((social) => (
         <Link
           key={social.name}

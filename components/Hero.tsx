@@ -54,11 +54,10 @@ export default function Hero({
         </div>
 
         <div className="px-0.5 text-base-light">
-          <p className="text-center block md:hidden text-sm max-w-md mx-auto text-zinc-300 font-light mb-1">
+          <Socials type="mobile" spotifyProfileUrl={spotifyProfileUrl} />
+          <p className="text-center block md:hidden text-sm max-w-md mx-auto text-zinc-300 font-light mb-12 mt-6">
             {description}
           </p>
-
-          <Socials type="mobile" spotifyProfileUrl={spotifyProfileUrl} />
 
           <Link
             href="/#about"
