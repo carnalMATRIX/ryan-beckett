@@ -14,41 +14,37 @@ interface TopTrack {
   artist: string;
   albumImageUrl: string;
   songUrl: string;
+  spotifyProfileUrl?: string | null;
 }
 
 interface ConnectProps {
-  socialCards?:
-    | {
-        platform: "github" | "linkedin" | "instagram";
-        link: string;
-      }[]
-    | null;
   spotifyDescription?: string | null;
   spotifyProfileUrl?: string | null;
-  spotifyListenUrl?: string | null;
 }
 
 function Connect({
-  socialCards,
   spotifyDescription,
   spotifyProfileUrl,
-  spotifyListenUrl,
 }: ConnectProps) {
   const [topTrack, setTopTrack] = useState<TopTrack | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const displaySocials = socialCards && socialCards.length > 0
-    ? socialCards.map((card) => {
-        const item = SOCIALS.find(
-          (s) => s.name.toLowerCase() === card.platform.toLowerCase(),
-        );
-        return {
-          name: item ? item.name : card.platform,
-          url: card.link,
-          svg: item ? item.svg : null,
-        };
-      })
-    : [];
+  const socialsConfig = [
+    { name: "github", title: "GitHub", url: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/ryan-beckett" },
+    { name: "linkedin", title: "LinkedIn", url: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/in/ryan-beckett" },
+    { name: "instagram", title: "Instagram", url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/ryan-beckett" },
+  ];
+
+  const displaySocials = socialsConfig.map((item) => {
+    const socialConstant = SOCIALS.find(
+      (s) => s.name.toLowerCase() === item.name
+    );
+    return {
+      name: item.title,
+      url: item.url,
+      svg: socialConstant ? socialConstant.svg : null,
+    };
+  });
 
   useEffect(() => {
     const fetchTopTrack = async () => {
@@ -169,7 +165,7 @@ function Connect({
 
               <div className="mt-auto flex flex-col gap-3 md:flex-row">
                 <Link
-                  href={spotifyProfileUrl || "#"}
+                  href={topTrack?.spotifyProfileUrl || spotifyProfileUrl || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -179,7 +175,7 @@ function Connect({
                 </Link>
 
                 <Link
-                  href={spotifyListenUrl || "#"}
+                  href={topTrack?.songUrl || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

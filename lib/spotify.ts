@@ -31,3 +31,14 @@ export const getTopTracks = async () => {
     },
   });
 };
+
+export const getSpotifyProfile = async () => {
+  const { access_token } = await getAccessToken();
+
+  return fetch(`https://api.spotify.com/v1/me`, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};
+

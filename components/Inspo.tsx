@@ -1,8 +1,5 @@
-import { INSPO } from "@/constants/inspo";
 import SectionHeading from "./SectionHeading";
 import Link from "next/link";
-import Image from "next/image";
-import { getMediaUrl } from "@/lib/utils";
 
 interface InspoProps {
   inspirations?: any[] | null;
@@ -28,14 +25,13 @@ function Inspo({ inspirations, inspirationBodyText }: InspoProps) {
         <div className="col-span-1 md:col-span-3 w-full px-5 md:px-0">
           <ul className="w-full flex flex-col gap-0 text-left">
             {displayInspo.map((inspo, index) => {
-              const link = inspo.link || "#";
+              const url = inspo.url || "#";
               const title = inspo.title || "";
-              const bgImage = getMediaUrl(inspo.image) || "";
 
               return (
                 <li key={index} className="w-full">
                   <Link
-                    href={link}
+                    href={url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group relative block w-full py-4 md:px-5 transition-all duration-300"
@@ -65,16 +61,7 @@ function Inspo({ inspirations, inspirationBodyText }: InspoProps) {
                         </span>
                       </div>
                     </div>
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out w-full overflow-hidden left-0 top-0">
-                      {bgImage && (
-                        <Image
-                          src={bgImage}
-                          alt={title || "Inspo art"}
-                          fill
-                          sizes="(max-w-768px) 100vw, 50vw"
-                          className="object-cover h-full w-full object-center"
-                        />
-                      )}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out w-full overflow-hidden left-0 top-0 -z-10">
                       <div className="absolute inset-0 bg-radial to-[#360000] from-[#730001]/70 left-0 right-0" />
                     </div>
                   </Link>

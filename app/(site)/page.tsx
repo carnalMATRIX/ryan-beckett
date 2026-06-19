@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import Inspo from "@/components/Inspo";
 import ProjectsSnapshot from "@/components/ProjectsSnapshot";
 import { getCachedPayload } from "@/lib/payload";
+import { getSpotifyProfile } from "@/lib/spotify";
 
 export const revalidate = 3600; // revalidate every hour
 
@@ -19,12 +20,25 @@ export default async function Home() {
 
   const content = (docs?.[0] as any) || null;
 
+  let spotifyProfileUrl = null;
+  try {
+    const profileRes = await getSpotifyProfile();
+    if (profileRes.ok) {
+      const profileData = await profileRes.json();
+      spotifyProfileUrl = profileData.external_urls?.spotify || null;
+    }
+  } catch (error) {
+    console.error("Error fetching Spotify profile:", error);
+  }
+
   return (
     <main className="min-h-screen">
       <Hero
         description={content?.heroDescription}
-        socialCards={content?.socialCards as any}
-        spotifyProfileUrl={content?.spotifyProfileUrl}
+        spotifyProfileUrl={spotifyProfileUrl}
+        keyword1={content?.heroKeyword1}
+        keyword2={content?.heroKeyword2}
+        keyword3={content?.heroKeyword3}
       />
       <About
         aboutCells={content?.aboutCells}
@@ -43,10 +57,8 @@ export default async function Home() {
       />
       <Inspo inspirations={content?.inspirations} inspirationBodyText={content?.inspirationBodyText} />
       <Connect
-        socialCards={content?.socialCards as any}
         spotifyDescription={content?.spotifyDescription}
-        spotifyProfileUrl={content?.spotifyProfileUrl}
-        spotifyListenUrl={content?.spotifyListenUrl}
+        spotifyProfileUrl={spotifyProfileUrl}
       />
       <CTA
         location={content?.location}

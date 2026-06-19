@@ -5,12 +5,16 @@ import Socials from "@/components/Socials";
 
 export default function Hero({
   description,
-  socialCards,
   spotifyProfileUrl,
+  keyword1,
+  keyword2,
+  keyword3,
 }: {
   description?: string | null;
-  socialCards?: { platform: string; link: string }[] | null;
   spotifyProfileUrl?: string | null;
+  keyword1?: string | null;
+  keyword2?: string | null;
+  keyword3?: string | null;
 }) {
   return (
     <section className="relative overflow-hidden max-w-7xl mx-auto">
@@ -20,10 +24,24 @@ export default function Hero({
             Ryan <span className="text-crimson-bright">Beckett</span>
           </h1>
           <h2 className="text-crimson-special font-roboto tracking-tight font-light uppercase text-3xl md:text-4xl mt-3 md:mt-5">
-            <span className="inline md:hidden">{"//"} </span>
-            Developer <br className="block md:hidden" />
-            {"//"} UX Designer <br className="block md:hidden" />
-            {"//"} Photographer
+            {keyword1 && (
+              <>
+                <span className="inline md:hidden">{"//"} </span>
+                {keyword1}
+              </>
+            )}
+            {keyword2 && (
+              <>
+                <br className="block md:hidden" />
+                {"//"} {keyword2}
+              </>
+            )}
+            {keyword3 && (
+              <>
+                <br className="block md:hidden" />
+                {"//"} {keyword3}
+              </>
+            )}
           </h2>
         </div>
 
@@ -34,7 +52,6 @@ export default function Hero({
 
           <Socials
             type="desktop"
-            socialCards={socialCards}
             spotifyProfileUrl={spotifyProfileUrl}
           />
         </div>
@@ -46,7 +63,6 @@ export default function Hero({
 
           <Socials
             type="mobile"
-            socialCards={socialCards}
             spotifyProfileUrl={spotifyProfileUrl}
           />
 

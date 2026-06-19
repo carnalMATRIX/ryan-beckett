@@ -22,10 +22,27 @@ export const HomeContent: CollectionConfig = {
           label: "Hero",
           fields: [
             {
-              name: "heroCreativeLabel",
-              type: "text",
-              label: "Creative Label (e.g., Digital Creative)",
-              required: true,
+              type: "row",
+              fields: [
+                {
+                  name: "heroKeyword1",
+                  type: "text",
+                  label: "Keyword 1 (e.g., Developer)",
+                  required: true,
+                },
+                {
+                  name: "heroKeyword2",
+                  type: "text",
+                  label: "Keyword 2 (e.g., UX Designer)",
+                  required: true,
+                },
+                {
+                  name: "heroKeyword3",
+                  type: "text",
+                  label: "Keyword 3 (e.g., Photographer)",
+                  required: true,
+                },
+              ],
             },
             {
               name: "heroDescription",
@@ -81,55 +98,6 @@ export const HomeContent: CollectionConfig = {
             },
           ],
         },
-        {
-          label: "Tech Stacks",
-          fields: [
-            {
-              name: "techStacks",
-              type: "array",
-              fields: [
-                {
-                  name: "name",
-                  type: "text",
-                  label: "Stack Name (e.g., Web / Dev)",
-                  required: true,
-                },
-                {
-                  name: "theme",
-                  type: "select",
-                  label: "Theme",
-                  options: [
-                    { label: "Purple", value: "purple" },
-                    { label: "Green", value: "green" },
-                    { label: "Red", value: "red" },
-                    { label: "Blue", value: "blue" },
-                    { label: "Orange", value: "orange" },
-                  ],
-                  required: true,
-                },
-                {
-                  name: "items",
-                  type: "array",
-                  label: "Stack Items",
-                  fields: [
-                    {
-                      name: "label",
-                      type: "text",
-                      required: true,
-                    },
-                    {
-                      name: "icon",
-                      type: "upload",
-                      relationTo: "media",
-                      required: true,
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-
         {
           label: "Education",
           fields: [
@@ -236,18 +204,7 @@ export const HomeContent: CollectionConfig = {
                   required: true,
                 },
                 {
-                  name: "description",
-                  type: "text",
-                  required: true,
-                },
-                {
-                  name: "image",
-                  type: "upload",
-                  relationTo: "media",
-                  required: true,
-                },
-                {
-                  name: "link",
+                  name: "url",
                   type: "text",
                   required: true,
                 },
@@ -259,45 +216,16 @@ export const HomeContent: CollectionConfig = {
           label: "Social",
           fields: [
             {
-              name: "socialCards",
-              type: "array",
-              label: "Social Cards",
-              fields: [
-                {
-                  name: "platform",
-                  type: "select",
-                  options: [
-                    { label: "GitHub", value: "github" },
-                    { label: "LinkedIn", value: "linkedin" },
-                    { label: "Instagram", value: "instagram" },
-                  ],
-                  required: true,
-                },
-                {
-                  name: "link",
-                  type: "text",
-                  required: true,
-                },
-              ],
-            },
-            {
               name: "spotifyDescription",
               type: "textarea",
               label: "Spotify Description",
               required: true,
             },
-            {
-              name: "spotifyProfileUrl",
-              type: "text",
-              label: "Spotify Profile URL",
-              required: true,
-            },
-            {
-              name: "spotifyListenUrl",
-              type: "text",
-              label: "Spotify Listen URL",
-              required: true,
-            },
+          ],
+        },
+        {
+          label: "Contact",
+          fields: [
             {
               name: "contactDescription",
               type: "textarea",

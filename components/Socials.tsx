@@ -3,11 +3,10 @@ import Link from "next/link";
 
 interface SocialsProps {
   type: "desktop" | "mobile";
-  socialCards?: { platform: string; link: string }[] | null;
   spotifyProfileUrl?: string | null;
 }
 
-export default function Socials({ type, socialCards, spotifyProfileUrl }: SocialsProps) {
+export default function Socials({ type, spotifyProfileUrl }: SocialsProps) {
   const updatedSocials = SOCIALS.map((social) => {
     if (social.name.toLowerCase() === "spotify") {
       return {
@@ -15,13 +14,7 @@ export default function Socials({ type, socialCards, spotifyProfileUrl }: Social
         url: spotifyProfileUrl || social.url,
       };
     }
-    const card = socialCards?.find(
-      (c) => c.platform.toLowerCase() === social.name.toLowerCase()
-    );
-    return {
-      ...social,
-      url: card?.link || social.url,
-    };
+    return social;
   });
 
   if (type === "desktop") {
@@ -34,7 +27,7 @@ export default function Socials({ type, socialCards, spotifyProfileUrl }: Social
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-crimson-bright-muted hover:text-crimson-bright transition-all duration-300 transform hover:scale-105 flex flex-row items-center gap-6 font-roboto tracking-[5%] font-medium uppercas text-[13px]"
+              className="text-crimson-bright-muted hover:text-crimson-bright transition-all duration-300 transform hover:scale-105 flex flex-row items-center gap-6 font-roboto tracking-[5%] font-medium uppercase text-[13px]"
               aria-label={social.name}
             >
               {social.name}
