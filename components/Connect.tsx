@@ -22,22 +22,36 @@ interface ConnectProps {
   spotifyProfileUrl?: string | null;
 }
 
-function Connect({
-  spotifyDescription,
-  spotifyProfileUrl,
-}: ConnectProps) {
+function Connect({ spotifyDescription, spotifyProfileUrl }: ConnectProps) {
   const [topTrack, setTopTrack] = useState<TopTrack | null>(null);
   const [loading, setLoading] = useState(true);
 
   const socialsConfig = [
-    { name: "github", title: "GitHub", url: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/ryan-beckett" },
-    { name: "linkedin", title: "LinkedIn", url: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/in/ryan-beckett" },
-    { name: "instagram", title: "Instagram", url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/ryan-beckett" },
+    {
+      name: "github",
+      title: "GitHub",
+      url:
+        process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/ryan-beckett",
+    },
+    {
+      name: "linkedin",
+      title: "LinkedIn",
+      url:
+        process.env.NEXT_PUBLIC_LINKEDIN_URL ||
+        "https://linkedin.com/in/ryan-beckett",
+    },
+    {
+      name: "instagram",
+      title: "Instagram",
+      url:
+        process.env.NEXT_PUBLIC_INSTAGRAM_URL ||
+        "https://instagram.com/ryan-beckett",
+    },
   ];
 
   const displaySocials = socialsConfig.map((item) => {
     const socialConstant = SOCIALS.find(
-      (s) => s.name.toLowerCase() === item.name
+      (s) => s.name.toLowerCase() === item.name,
     );
     return {
       name: item.title,
@@ -75,6 +89,8 @@ function Connect({
               <li key={index} className="flex-1 flex">
                 <Link
                   href={connect.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex flex-row items-center justify-between bg-bg-dark px-5 py-2 group flex-1"
                 >
                   <div className="flex flex-row items-center gap-2">
@@ -152,7 +168,7 @@ function Connect({
                           fill
                           className="object-cover h-full w-full"
                         />
-                        <WaveformIcon className="absolute top-1 right-1 bg-crimson-muted text-crimson-bright p-1 size-6" />
+                        <WaveformIcon className="absolute top-1.5 right-1.5 bg-base-light text-crimson-bright p-1.5 size-5" />
                       </div>
                     ) : (
                       <div className="w-full h-full bg-white/5 flex items-center justify-center">
@@ -170,7 +186,10 @@ function Connect({
                   rel="noopener noreferrer"
                   className="w-full md:w-fit"
                 >
-                  <Button variant="secondary" className="w-full md:w-fit py-5! md:py-3! flex items-center justify-center gap-2 cursor-pointer">
+                  <Button
+                    variant="secondary"
+                    className="w-full md:w-fit py-5! md:py-3! flex items-center justify-center gap-2 cursor-pointer"
+                  >
                     View Profile <ExternalLink className="w-4 h-4" />
                   </Button>
                 </Link>
