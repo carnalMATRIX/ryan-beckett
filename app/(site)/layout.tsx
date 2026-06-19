@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   title: "RYAN BECKETT // AKL NZ",
   description:
     "Step into the world of Ryan Beckett, a multifaceted creative force. As a developer, designer, and photographer, Ryan crafts digital experiences that captivate and inspire. Explore his portfolio to witness the seamless blend of technology and artistry that defines his work.",
+  verification: {
+    google: "xKOSvsWL_ZLZKTVJyTVXKUEpLhglLV1AH7uBXx3rpYk",
+  },
 };
 
 export default function RootLayout({
