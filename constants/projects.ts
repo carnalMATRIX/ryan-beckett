@@ -49,4 +49,44 @@ export const PROJECTS: Project[] = [
     tags: ["Design", "HCI", "Obsidian", "Article"],
     link: "/projects/project-4",
   },
+  {
+    id: "mantle-dup",
+    title: "PROJECT MANTLE",
+    subtitle: "CURING SAAS FATIGUE WITH A CENTRALISED OBSIDIAN WORKSPACE",
+    description:
+      "Consolidating fragmented task tracking, calendar planning, contextual intelligence, and modern design into a single, cohesive human interface.",
+    featuredImage: "/images/about/about_1.JPG",
+    tags: ["Design", "HCI", "Obsidian", "Article"],
+    link: "/projects/mantle",
+  },
+  {
+    id: "project-6",
+    title: "PROJECT MANTLE",
+    subtitle: "CURING SAAS FATIGUE WITH A CENTRALISED OBSIDIAN WORKSPACE",
+    description:
+      "Consolidating fragmented task tracking, calendar planning, contextual intelligence, and modern design into a single, cohesive human interface.",
+    featuredImage: "/images/about/about_2.JPG",
+    tags: ["Design", "HCI", "Obsidian", "Article"],
+    link: "/projects/project-2",
+  },
+  {
+    id: "project-7",
+    title: "PROJECT MANTLE",
+    subtitle: "CURING SAAS FATIGUE WITH A CENTRALISED OBSIDIAN WORKSPACE",
+    description:
+      "Consolidating fragmented task tracking, calendar planning, contextual intelligence, and modern design into a single, cohesive human interface.",
+    featuredImage: "/images/about/about_3.JPG",
+    tags: ["Design", "HCI", "Obsidian", "Article"],
+    link: "/projects/project-3",
+  },
+  {
+    id: "project-8",
+    title: "PROJECT MANTLE",
+    subtitle: "CURING SAAS FATIGUE WITH A CENTRALISED OBSIDIAN WORKSPACE",
+    description:
+      "Consolidating fragmented task tracking, calendar planning, contextual intelligence, and modern design into a single, cohesive human interface.",
+    featuredImage: "/images/hero/hero_bg.JPG",
+    tags: ["Design", "HCI", "Obsidian", "Article"],
+    link: "/projects/project-4",
+  },
 ];
