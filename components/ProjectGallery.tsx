@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Media } from "@/payload-types";
 import { Button } from "./ui/button";
-import { ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface ProjectGalleryProps {
   images?:
@@ -79,13 +79,13 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
 
         <div className="flex items-center justify-center gap-4">
           <Button
-            variant="default"
+            variant="secondary"
             size="icon"
             onClick={prevImage}
             disabled={images.length <= 1}
-            className="rotate-180 rounded-none!"
+            className="rounded-none!"
           >
-            <ChevronRight className="text-[#220B3B]" />
+            <ChevronLeft className="w-5 h-5" />
           </Button>
 
           <span className="text-sm font-medium text-white/60">
@@ -93,13 +93,13 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
           </span>
 
           <Button
-            variant="default"
+            variant="secondary"
             size="icon"
             onClick={nextImage}
             disabled={images.length <= 1}
-            className="text-[#220B3B] rounded-none!"
+            className="rounded-none!"
           >
-            <ChevronRight />
+            <ChevronRight className="w-5 h-5" />
           </Button>
         </div>
       </div>

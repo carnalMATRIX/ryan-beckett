@@ -13,6 +13,7 @@ import {
 
 import { ArticleImage } from "@/components/ArticleImage";
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 const SubBlockRenderer = ({ block }: { block: any }) => {
   switch (block.blockType) {
@@ -133,13 +134,14 @@ export const jsxConverters: JSXConverters = {
         <div className="my-12 p-8 rounded-none bg-bg-light border border-zinc-800 flex flex-col items-center text-center gap-6">
           <h3 className="text-2xl font-roboto font-bold uppercase text-white tracking-widest">{heading}</h3>
           {link && (
-            <Button asChild size="lg" className="tracking-widest text-[11px] font-bold uppercase rounded-none">
+            <Button asChild size="lg" className="tracking-widest text-[11px] font-bold uppercase rounded-none cursor-pointer">
               <a
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex items-center gap-2"
               >
-                Get Started
+                Get Started <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </Button>
           )}

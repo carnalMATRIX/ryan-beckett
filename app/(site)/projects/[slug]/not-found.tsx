@@ -47,9 +47,9 @@ export default function NotFound() {
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-8">
-          <Button asChild variant="outline" size="lg" className="w-full md:w-auto rounded-none">
-            <Link href="/projects">
-              <Undo2 className="mr-2 inline" size={18} />
+          <Button asChild variant="secondary" size="lg" className="w-full md:w-auto rounded-none">
+            <Link href="/projects" className="flex items-center justify-center gap-2">
+              <Undo2 className="w-4.5 h-4.5" />
               Go to Project Archive
             </Link>
           </Button>

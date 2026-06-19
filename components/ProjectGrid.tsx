@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Project } from "@/constants/projects";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -93,9 +93,10 @@ function ProjectGrid({ projects }: { projects: Project[] }) {
         <div className="pb-16 flex justify-center w-full">
           <button
             onClick={handleLoadMore}
-            className="group/btn flex items-center justify-center gap-3 bg-crimson-bright hover:bg-crimson-dark text-white px-8 py-4 rounded-none transition-all duration-300 font-roboto font-bold text-xs tracking-widest uppercase cursor-pointer min-w-50"
+            className="group/btn flex items-center justify-center gap-2 bg-crimson-bright hover:bg-crimson-dark text-white px-8 py-4 rounded-none transition-all duration-300 font-roboto font-bold text-xs tracking-widest uppercase cursor-pointer min-w-50"
           >
-            Load More
+            <span>Load More</span>
+            <Plus className="w-4 h-4 transition-transform group-hover/btn:translate-y-0.5" />
           </button>
         </div>
       )}

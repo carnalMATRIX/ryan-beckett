@@ -2,7 +2,7 @@
 
 import SectionHeading from "./SectionHeading";
 import Link from "next/link";
-import { ArrowUpRight, Music } from "lucide-react";
+import { ArrowUpRight, Music, ExternalLink, Headphones } from "lucide-react";
 import { SOCIALS } from "@/constants/socials";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -168,9 +168,10 @@ function Connect({
                   href={topTrack?.spotifyProfileUrl || spotifyProfileUrl || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="w-full md:w-fit"
                 >
-                  <Button className="w-full md:w-fit py-5! md:py-3!">
-                    View Profile
+                  <Button variant="secondary" className="w-full md:w-fit py-5! md:py-3! flex items-center justify-center gap-2 cursor-pointer">
+                    View Profile <ExternalLink className="w-4 h-4" />
                   </Button>
                 </Link>
 
@@ -178,9 +179,10 @@ function Connect({
                   href={topTrack?.songUrl || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="w-full md:w-fit"
                 >
-                  <Button className="w-full md:w-fit py-5! md:py-3!">
-                    Listen Now
+                  <Button className="w-full md:w-fit py-5! md:py-3! flex items-center justify-center gap-2 cursor-pointer">
+                    Listen Now <Headphones className="w-4 h-4" />
                   </Button>
                 </Link>
               </div>

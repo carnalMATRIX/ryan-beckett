@@ -34,12 +34,12 @@ export function ShareButton() {
 
       <Button
         onClick={handleShare}
-        variant="default"
+        variant="secondary"
         size="icon"
         title="Share Project"
         className="rounded-none!"
       >
-        <Share />
+        <Share className="w-4 h-4" />
       </Button>
     </div>
   );

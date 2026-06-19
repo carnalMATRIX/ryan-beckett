@@ -178,11 +178,12 @@ export default async function ProjectSinglePage({ params }: PageProps) {
           {/* RETURN TO PROJECT ARCHIVE Button */}
           <Button
             asChild
+            variant="secondary"
             size="lg"
             className="tracking-widest text-[11px] font-bold uppercase rounded-none"
           >
             <Link href="/projects" className="flex items-center gap-2">
-              <Undo2 size={14} className="shrink-0" />
+              <Undo2 className="w-3.5 h-3.5 shrink-0" />
               Return to Project Archive
             </Link>
           </Button>
@@ -196,7 +197,9 @@ export default async function ProjectSinglePage({ params }: PageProps) {
                   {"//"}
                 </span>
                 <br className="block md:hidden" />
-                <span className="font-light text-base-light">{subtitle}</span>
+                <span className="font-light text-base-light text-[22px] md:text-[30px] leading-tight">
+                  {subtitle}
+                </span>
               </>
             )}
           </h1>

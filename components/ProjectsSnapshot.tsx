@@ -2,7 +2,7 @@ import React from "react";
 import SectionHeading from "./SectionHeading";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { getCachedPayload } from "@/lib/payload";
@@ -96,7 +96,7 @@ async function ProjectsSnapshot() {
                 </div>
 
                 {/* Bottom Row: Tags & Link Indicator */}
-                <div className="flex justify-between items-end md:mt-6 z-10 w-full">
+                <div className="flex justify-between items-end mt-5 md:mt-6 z-10 w-full">
                   {/* Tags array */}
                   <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (
@@ -124,7 +124,9 @@ async function ProjectsSnapshot() {
         </div>
 
         <Link href="/projects" className="mx-5 md:mx-0">
-          <Button>View All Projects</Button>
+          <Button variant="secondary" className="flex items-center gap-2 cursor-pointer">
+            View All Projects <ArrowRight className="w-4 h-4" />
+          </Button>
         </Link>
       </div>
     </section>
