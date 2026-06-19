@@ -20,10 +20,10 @@ export default function Hero({
     <section className="relative overflow-hidden max-w-7xl mx-auto">
       <div className="relative z-10 flex flex-col justify-between h-screen p-3 md:p-8">
         <div className="mt-2 md:mt-10 text-left md:text-center">
-          <h1 className="font-outfit uppercase text-6xl lg:text-[100px] text-crimson-muted font-bold tracking-[8%] md:tracking-[15%] leading-14 md:leading-15">
+          <h1 className="font-outfit uppercase text-6xl lg:text-[100px] text-crimson-muted font-bold tracking-[8%] md:tracking-[15%] leading-13 md:leading-15">
             Ryan <span className="text-crimson-bright">Beckett</span>
           </h1>
-          <h2 className="text-crimson-special font-roboto tracking-tight font-light uppercase text-2xl md:text-4xl mt-3 md:mt-5">
+          <h2 className="text-crimson-special font-roboto tracking-tight font-light uppercase text-2xl md:text-4xl mt-3 md:mt-5 leading-7 md:leading-normal">
             {keyword1 && (
               <>
                 <span className="inline md:hidden">{"//"} </span>
@@ -33,13 +33,13 @@ export default function Hero({
             {keyword2 && (
               <>
                 <br className="block md:hidden" />
-                {"//"} {keyword2}
+                {" //"} {keyword2}
               </>
             )}
             {keyword3 && (
               <>
                 <br className="block md:hidden" />
-                {"//"} {keyword3}
+                {" //"} {keyword3}
               </>
             )}
           </h2>
@@ -76,7 +76,7 @@ export default function Hero({
         layout="fill"
         objectFit="contain"
         objectPosition="center"
-        className="absolute mt-3 h-screen w-screen -z-20"
+        className="absolute mt-5 h-screen w-screen -z-20"
       />
       <div className="absolute mt-5 h-screen w-screen bg-[radial-gradient(circle_at_center,transparent_72%,#010000_100%)] -z-10 pointer-events-none" />
     </section>
