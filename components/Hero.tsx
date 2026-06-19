@@ -62,7 +62,7 @@ export default function Hero({
 
           <Link
             href="/#about"
-            className="flex flex-col items-center text-sm group md:w-fit mx-auto transition-all duration-300"
+            className="hidden md:flex flex-col items-center text-sm group md:w-fit mx-auto transition-all duration-300"
           >
             <span>Continue reading</span>
             <ChevronDown className="animate-bounce animation-duration-[2s] group-hover:text-crimson-bright transition-colors duration-300" />
