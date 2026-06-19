@@ -3,14 +3,32 @@ import Link from "next/link";
 
 interface SocialsProps {
   type: "desktop" | "mobile";
+  socialCards?: { platform: string; link: string }[] | null;
+  spotifyProfileUrl?: string | null;
 }
 
-export default function Socials({ type }: SocialsProps) {
+export default function Socials({ type, socialCards, spotifyProfileUrl }: SocialsProps) {
+  const updatedSocials = SOCIALS.map((social) => {
+    if (social.name.toLowerCase() === "spotify") {
+      return {
+        ...social,
+        url: spotifyProfileUrl || social.url,
+      };
+    }
+    const card = socialCards?.find(
+      (c) => c.platform.toLowerCase() === social.name.toLowerCase()
+    );
+    return {
+      ...social,
+      url: card?.link || social.url,
+    };
+  });
+
   if (type === "desktop") {
     return (
       <div className="hidden md:flex flex-col items-center gap-6 z-50 pointer-events-auto animate-fade-in">
         <div className="flex flex-col gap-5 items-end relative">
-          {SOCIALS.map((social) => (
+          {updatedSocials.map((social) => (
             <Link
               key={social.name}
               href={social.url}
@@ -33,7 +51,7 @@ export default function Socials({ type }: SocialsProps) {
   // Mobile layout
   return (
     <div className="flex md:hidden justify-center items-center gap-8 py-4 my-2">
-      {SOCIALS.map((social) => (
+      {updatedSocials.map((social) => (
         <Link
           key={social.name}
           href={social.url}

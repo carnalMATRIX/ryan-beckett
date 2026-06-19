@@ -157,12 +157,6 @@ function ContactForm() {
     >
       {/* Name Field */}
       <div className="flex flex-col gap-1.5 group w-full text-left">
-        <label
-          htmlFor="name"
-          className="text-xs uppercase font-roboto tracking-widest text-zinc-500 group-focus-within:text-crimson-bright transition-colors duration-300 font-bold"
-        >
-          Name
-        </label>
         <input
           type="text"
           id="name"
@@ -174,7 +168,7 @@ function ContactForm() {
           onBlur={handleBlur}
           aria-describedby={errors.name ? "name-error" : undefined}
           aria-invalid={!!errors.name}
-          placeholder="John Doe"
+          placeholder="Name"
           className={`bg-transparent border-b pb-2 text-white placeholder:text-zinc-600 focus:outline-none transition-all duration-300 text-sm md:text-base ${
             errors.name
               ? "border-crimson-bright focus:border-crimson-bright"
@@ -195,12 +189,6 @@ function ContactForm() {
 
       {/* Email Field */}
       <div className="flex flex-col gap-1.5 group w-full text-left">
-        <label
-          htmlFor="email"
-          className="text-xs uppercase font-roboto tracking-widest text-zinc-500 group-focus-within:text-crimson-bright transition-colors duration-300 font-bold"
-        >
-          Email
-        </label>
         <input
           type="email"
           id="email"
@@ -212,7 +200,7 @@ function ContactForm() {
           onBlur={handleBlur}
           aria-describedby={errors.email ? "email-error" : undefined}
           aria-invalid={!!errors.email}
-          placeholder="john@example.com"
+          placeholder="Email"
           className={`bg-transparent border-b pb-2 text-white placeholder:text-zinc-600 focus:outline-none transition-all duration-300 text-sm md:text-base ${
             errors.email
               ? "border-crimson-bright focus:border-crimson-bright"
@@ -233,12 +221,6 @@ function ContactForm() {
 
       {/* Subject Field */}
       <div className="flex flex-col gap-1.5 group w-full text-left">
-        <label
-          htmlFor="subject"
-          className="text-xs uppercase font-roboto tracking-widest text-zinc-500 group-focus-within:text-crimson-bright transition-colors duration-300 font-bold"
-        >
-          Subject
-        </label>
         <input
           type="text"
           id="subject"
@@ -249,7 +231,7 @@ function ContactForm() {
           onBlur={handleBlur}
           aria-describedby={errors.subject ? "subject-error" : undefined}
           aria-invalid={!!errors.subject}
-          placeholder="Project inquiry / Collaboration"
+          placeholder="Subject"
           className={`bg-transparent border-b pb-2 text-white placeholder:text-zinc-600 focus:outline-none transition-all duration-300 text-sm md:text-base ${
             errors.subject
               ? "border-crimson-bright focus:border-crimson-bright"
@@ -270,12 +252,6 @@ function ContactForm() {
 
       {/* Message Field */}
       <div className="flex flex-col gap-1.5 group w-full text-left">
-        <label
-          htmlFor="message"
-          className="text-xs uppercase font-roboto tracking-widest text-zinc-500 group-focus-within:text-crimson-bright transition-colors duration-300 font-bold"
-        >
-          Message
-        </label>
         <textarea
           id="message"
           name="message"
@@ -285,7 +261,7 @@ function ContactForm() {
           onBlur={handleBlur}
           aria-describedby={errors.message ? "message-error" : undefined}
           aria-invalid={!!errors.message}
-          placeholder="Tell me about your project or idea..."
+          placeholder="Message"
           rows={4}
           className={`bg-transparent border-b pb-2 text-white placeholder:text-zinc-600 focus:outline-none transition-all duration-300 resize-none text-sm md:text-base ${
             errors.message

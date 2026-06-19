@@ -6,7 +6,10 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { getCachedPayload } from "@/lib/payload";
-import type { Project as PayloadProject, Media as PayloadMedia } from "@/payload-types";
+import type {
+  Project as PayloadProject,
+  Media as PayloadMedia,
+} from "@/payload-types";
 
 async function ProjectsSnapshot() {
   const payload = await getCachedPayload();
@@ -25,13 +28,22 @@ async function ProjectsSnapshot() {
           {dbProjects.map((project, index) => {
             const featuredImg = project.projectDetails?.featuredImage;
             let imageUrl = "/images/about/about_1.JPG";
-            if (featuredImg && typeof featuredImg === "object" && featuredImg.url) {
+            if (
+              featuredImg &&
+              typeof featuredImg === "object" &&
+              featuredImg.url
+            ) {
               imageUrl = featuredImg.url;
-            } else if (project.images?.[0]?.image && typeof project.images[0].image === "object" && project.images[0].image.url) {
+            } else if (
+              project.images?.[0]?.image &&
+              typeof project.images[0].image === "object" &&
+              project.images[0].image.url
+            ) {
               imageUrl = project.images[0].image.url;
             }
 
-            const tags = project.tags?.map((t) => t.label).filter(Boolean) || [];
+            const tags =
+              project.tags?.map((t) => t.label).filter(Boolean) || [];
             const subtitle = project.projectDetails?.subtitle || "";
             const description = project.projectDetails?.description || "";
             const slug = project.projectBehaviour?.slug || "#";
@@ -42,7 +54,7 @@ async function ProjectsSnapshot() {
                 key={project.id}
                 href={link}
                 className={cn(
-                  "relative group overflow-hidden p-5 md:p-8 md:min-h-70 flex flex-col justify-between bg-bg-dark border border-zinc-800/40 hover:border-zinc-700/80 transition-all duration-300",
+                  "relative group overflow-hidden p-5 md:p-8 md:min-h-70 flex flex-col justify-between bg-bg-dark transition-all duration-300",
                   index === 3 ? "hidden md:flex" : "flex",
                 )}
               >
@@ -60,12 +72,12 @@ async function ProjectsSnapshot() {
                     className="object-cover h-full w-full object-top"
                   />
                   {/* Dark Vignette Overlay for Readability */}
-                  <div className="absolute inset-0 bg-linear-to-r from-black/95 via-black/70 to-transparent left-0 right-0" />
+                  <div className="absolute inset-0 bg-radial from-[#730001]/70 to-[#360000] left-0 right-0" />
                 </div>
 
                 {/* Title & Subtitle Group */}
                 <div className="max-w-[95%] z-10">
-                  <h3 className="font-outfit uppercase text-[17px] leading-snug">
+                  <h3 className="font-outfit uppercase text-[17px] leading-snug text-left">
                     <span className="text-white font-bold tracking-[15%]">
                       {project.title}
                     </span>
@@ -73,24 +85,24 @@ async function ProjectsSnapshot() {
                       {"//"}
                     </span>
                     <br className="block md:hidden" />
-                    <span className="text-base-light font-light tracking-[3%]">
+                    <span className="text-[#8F8F8F] font-light tracking-[3%] group-hover:text-base-light">
                       {subtitle}
                     </span>
                   </h3>
                   {/* Description */}
-                  <p className="hidden md:block text-zinc-400 text-[13.5px] md:text-[14px] leading-relaxed mt-4 font-light max-w-[95%]">
+                  <p className="hidden md:block text-zinc-400 text-[13.5px] md:text-[14px] leading-relaxed mt-4 font-medium max-w-[95%] text-left group-hover:text-base-light transition-all duration-300">
                     {description}
                   </p>
                 </div>
 
                 {/* Bottom Row: Tags & Link Indicator */}
-                <div className="flex justify-between items-end md:mt-6 z-10">
+                <div className="flex justify-between items-end md:mt-6 z-10 w-full">
                   {/* Tags array */}
                   <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (
                       <span
                         key={tag}
-                        className="bg-crimson-dark text-base-light px-2.5 py-0.5 text-xs font-roboto-flex font-medium"
+                        className="bg-crimson-dark text-base-light px-2.5 py-0.5 text-xs font-roboto-flex font-medium group-hover:bg-base-light group-hover:text-crimson-dark transition-all duration-300"
                       >
                         {tag}
                       </span>
@@ -100,7 +112,7 @@ async function ProjectsSnapshot() {
                   {/* Floating Arrow Link Indicator */}
                   <div
                     className={
-                      "p-3 rounded-full bg-crimson-bright/40 text-crimson-bright transition-all duration-500 transform hover:bg-crimson-bright hover:text-white! opacity-0 group-hover:opacity-100"
+                      "p-3 rounded-full bg-bg-dark/50 text-crimson-bright transition-all duration-500 transform hover:bg-crimson-bright hover:text-white! opacity-0 group-hover:opacity-100"
                     }
                   >
                     <ArrowUpRight className="w-5 h-5 text-white z-20" />

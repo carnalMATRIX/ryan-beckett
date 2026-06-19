@@ -16,9 +16,39 @@ interface TopTrack {
   songUrl: string;
 }
 
-function Connect() {
+interface ConnectProps {
+  socialCards?:
+    | {
+        platform: "github" | "linkedin" | "instagram";
+        link: string;
+      }[]
+    | null;
+  spotifyDescription?: string | null;
+  spotifyProfileUrl?: string | null;
+  spotifyListenUrl?: string | null;
+}
+
+function Connect({
+  socialCards,
+  spotifyDescription,
+  spotifyProfileUrl,
+  spotifyListenUrl,
+}: ConnectProps) {
   const [topTrack, setTopTrack] = useState<TopTrack | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const displaySocials = socialCards && socialCards.length > 0
+    ? socialCards.map((card) => {
+        const item = SOCIALS.find(
+          (s) => s.name.toLowerCase() === card.platform.toLowerCase(),
+        );
+        return {
+          name: item ? item.name : card.platform,
+          url: card.link,
+          svg: item ? item.svg : null,
+        };
+      })
+    : [];
 
   useEffect(() => {
     const fetchTopTrack = async () => {
@@ -45,8 +75,7 @@ function Connect() {
 
         <div className="grid grid-cols-1 md:grid-cols-5 mt-5 gap-3">
           <ul className="flex flex-col gap-3 col-span-1 md:col-span-2 h-full mx-5 md:mx-0">
-            {/* slice(0, 3) extracts indices 0, 1, and 2 */}
-            {SOCIALS.slice(0, 3).map((connect, index) => (
+            {displaySocials.map((connect, index) => (
               <li key={index} className="flex-1 flex">
                 <Link
                   href={connect.url}
@@ -71,8 +100,8 @@ function Connect() {
           </ul>
 
           <div className="bg-crimson-dark flex flex-col md:flex-row justify-between p-5 col-span-1 md:col-span-3">
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-col md:flex-row gap-15 md:items-center">
+            <div className="flex flex-col gap-3 flex-1">
+              <div className="flex flex-col md:flex-row gap-5 md:gap-15 md:items-center">
                 <div className="w-full flex flex-row items-center gap-1">
                   <span className="[&>svg]:w-10 [&>svg]:h-10 group-hover:text-crimson-bright transition-all duration-300">
                     <Image
@@ -93,37 +122,67 @@ function Connect() {
                 </p>
               </div>
 
-              <div className="flex flex-col md:flex-row gap-15 items-start">
+              <div className="flex flex-col md:flex-row gap-5 md:gap-15 items-start w-full">
                 <p className="w-full text-sm font-roboto font-light">
-                  Music is essential for me to get into my flow-state, check out
-                  what I&apos;m listening to at the moment or view my profile.
+                  {spotifyDescription}
                 </p>
 
-                <div className="min-w-[40%] -mt-1">
-                  <p className="md:min-w-[40%] block md:hidden text-xs font-bold uppercase text-base-light -mt-5 pb-2">
-                    Now Playing
-                  </p>
-                  <p className="text-white font-black text-xl lg:text-2xl leading-tight tracking-tight mt-1 truncate font-roboto">
-                    {loading
-                      ? "Loading track..."
-                      : topTrack?.title || "Spotify Offline"}
-                  </p>
-                  <p className="text-base-light text-sm md:text-base truncate font-light font-roboto">
-                    {loading
-                      ? "Syncing..."
-                      : topTrack?.artist || "Not currently playing"}
-                  </p>
+                <div className="w-full md:min-w-[40%] md:max-w-[40%] -mt-1 grid grid-cols-2 md:flex md:flex-col gap-4 items-center md:items-start">
+                  <div className="col-span-1 min-w-0 w-full">
+                    <p className="md:min-w-[40%] block md:hidden text-xs font-bold uppercase text-base-light -mt-5 pb-2">
+                      Now Playing
+                    </p>
+                    <p className="text-white font-black text-xl lg:text-2xl leading-tight tracking-tight mt-1 truncate font-roboto">
+                      {loading
+                        ? "Loading track..."
+                        : topTrack?.title || "Spotify Offline"}
+                    </p>
+                    <p className="text-base-light text-sm md:text-base truncate font-light font-roboto">
+                      {loading
+                        ? "Syncing..."
+                        : topTrack?.artist || "Not currently playing"}
+                    </p>
+                  </div>
+
+                  {/* Inline Album Art (Mobile Only) */}
+                  <div className="col-span-1 relative w-full aspect-square shrink-0 block md:hidden">
+                    {loading ? (
+                      <div className="w-full h-full bg-white/5 animate-pulse" />
+                    ) : topTrack ? (
+                      <div className="relative size-full">
+                        <Image
+                          src={topTrack.albumImageUrl}
+                          alt="Album Art"
+                          fill
+                          className="object-cover h-full w-full"
+                        />
+                        <WaveformIcon className="absolute top-1 right-1 bg-crimson-muted text-crimson-bright p-1 size-6" />
+                      </div>
+                    ) : (
+                      <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                        <Music className="text-white/20 size-5" />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
               <div className="mt-auto flex flex-col gap-3 md:flex-row">
-                <Link href="#">
+                <Link
+                  href={spotifyProfileUrl || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button className="w-full md:w-fit py-5! md:py-3!">
                     View Profile
                   </Button>
                 </Link>
 
-                <Link href="#">
+                <Link
+                  href={spotifyListenUrl || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button className="w-full md:w-fit py-5! md:py-3!">
                     Listen Now
                   </Button>
@@ -131,7 +190,7 @@ function Connect() {
               </div>
             </div>
 
-            <div className="relative w-full md:max-w-[30%] mt-5 md:mt-0">
+            <div className="relative w-full md:max-w-[30%] mt-5 md:mt-0 hidden md:block">
               {loading ? (
                 <div className="w-full h-full bg-white/5 animate-pulse" />
               ) : topTrack ? (

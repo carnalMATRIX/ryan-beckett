@@ -3,7 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import Socials from "@/components/Socials";
 
-export default function Hero() {
+export default function Hero({
+  description,
+  socialCards,
+  spotifyProfileUrl,
+}: {
+  description?: string | null;
+  socialCards?: { platform: string; link: string }[] | null;
+  spotifyProfileUrl?: string | null;
+}) {
   return (
     <section className="relative overflow-hidden max-w-7xl mx-auto">
       <div className="relative z-10 flex flex-col justify-between h-screen p-3 md:p-8">
@@ -20,23 +28,27 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-row justify-between items-center w-full">
-          <p className="hidden md:block text-left max-w-67">
-            A BCIS student based in Auckland, NZ. With a focus on human-computer
-            interaction, combined with robust software development and an
-            emphasis on effective project management.
+          <p className="hidden md:block text-left max-w-72 text-zinc-300 font-light text-sm">
+            {description}
           </p>
 
-          <Socials type="desktop" />
+          <Socials
+            type="desktop"
+            socialCards={socialCards}
+            spotifyProfileUrl={spotifyProfileUrl}
+          />
         </div>
 
         <div className="px-0.5 text-base-light">
-          <p className="text-center block md:hidden text-sm">
-            A BCIS student based in Auckland, NZ. With a focus on human-computer
-            interaction, robust software development, and effective project
-            management.
+          <p className="text-center block md:hidden text-sm max-w-md mx-auto text-zinc-300 font-light mb-4">
+            {description}
           </p>
 
-          <Socials type="mobile" />
+          <Socials
+            type="mobile"
+            socialCards={socialCards}
+            spotifyProfileUrl={spotifyProfileUrl}
+          />
 
           <Link
             href="/#about"

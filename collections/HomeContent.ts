@@ -39,65 +39,45 @@ export const HomeContent: CollectionConfig = {
           label: "About",
           fields: [
             {
-              name: "aboutHeroImage",
-              type: "upload",
-              relationTo: "media",
-              label: "Main Hero Image",
+              name: "aboutCells",
+              type: "array",
+              label: "About Cells",
+              minRows: 1,
+              maxRows: 6,
               required: true,
-            },
-            {
-              name: "aboutHeroText",
-              type: "text",
-              label: "Main Hero Text",
-              required: true,
-            },
-            {
-              name: "aboutDeveloperDescription",
-              type: "textarea",
-              required: true,
-            },
-            {
-              name: "aboutStudentDescription",
-              type: "textarea",
-              required: true,
-            },
-            {
-              name: "aboutSelfDevDescription",
-              type: "textarea",
-              required: true,
-            },
-            {
-              name: "aboutCreativeDescription",
-              type: "textarea",
-              required: true,
+              fields: [
+                {
+                  name: "heading",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  name: "content",
+                  type: "textarea",
+                  required: true,
+                },
+              ],
             },
             {
               name: "aboutDeveloperImage",
               type: "upload",
               relationTo: "media",
               required: true,
-              label: "Large Image Left",
+              label: "Left",
             },
             {
               name: "aboutStudentImage",
               type: "upload",
               relationTo: "media",
               required: true,
-              label: "Large Image Middle",
+              label: "Centre",
             },
             {
               name: "aboutCreativeImage",
               type: "upload",
               relationTo: "media",
               required: true,
-              label: "Large Image Right",
-            },
-            {
-              name: "aboutSmallImage",
-              type: "upload",
-              relationTo: "media",
-              label: "Small Image",
-              required: true,
+              label: "Right",
             },
           ],
         },
@@ -153,6 +133,13 @@ export const HomeContent: CollectionConfig = {
         {
           label: "Education",
           fields: [
+            {
+              name: "educationAsideImage",
+              type: "upload",
+              relationTo: "media",
+              label: "Aside Background Image",
+              required: true,
+            },
             {
               name: "educationQuote",
               type: "text",
@@ -234,6 +221,12 @@ export const HomeContent: CollectionConfig = {
           label: "Inspiration",
           fields: [
             {
+              name: "inspirationBodyText",
+              type: "textarea",
+              label: "Section Body Text",
+              required: true,
+            },
+            {
               name: "inspirations",
               type: "array",
               fields: [
@@ -277,13 +270,7 @@ export const HomeContent: CollectionConfig = {
                     { label: "GitHub", value: "github" },
                     { label: "LinkedIn", value: "linkedin" },
                     { label: "Instagram", value: "instagram" },
-                    { label: "Spotify", value: "spotify" },
                   ],
-                  required: true,
-                },
-                {
-                  name: "title",
-                  type: "text",
                   required: true,
                 },
                 {
@@ -292,6 +279,24 @@ export const HomeContent: CollectionConfig = {
                   required: true,
                 },
               ],
+            },
+            {
+              name: "spotifyDescription",
+              type: "textarea",
+              label: "Spotify Description",
+              required: true,
+            },
+            {
+              name: "spotifyProfileUrl",
+              type: "text",
+              label: "Spotify Profile URL",
+              required: true,
+            },
+            {
+              name: "spotifyListenUrl",
+              type: "text",
+              label: "Spotify Listen URL",
+              required: true,
             },
             {
               name: "contactDescription",

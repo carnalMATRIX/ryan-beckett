@@ -3,7 +3,13 @@ import SectionHeading from "./SectionHeading";
 import { Mail, MapPin } from "lucide-react";
 import ContactForm from "./ContactForm";
 
-function CTA() {
+interface CTAProps {
+  location?: string | null;
+  email?: string | null;
+  contactDescription?: string | null;
+}
+
+function CTA({ location, email, contactDescription }: CTAProps) {
   return (
     <section className="bg-bg-dark py-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-5">
@@ -18,35 +24,43 @@ function CTA() {
             <span className="text-crimson-bright">Meaningful</span>
           </h3>
 
-          <p className="font-roboto font-light text-[15px] leading-5 text-base-light mx-5 md:mx-0">
-            I'm always looking to connect with teams working on software,
-            human-computer interaction, intelligence, or high-impact digital
-            products.
-          </p>
+          {contactDescription && (
+            <p className="font-roboto font-light text-[15px] leading-5 text-base-light mx-5 md:mx-0">
+              {contactDescription}
+            </p>
+          )}
 
-          <hr className="border-base-light opacity-30 my-2 mx-5 md:mx-0" />
+          {(location || email) && (
+            <>
+              <hr className="border-base-light opacity-30 my-2 mx-5 md:mx-0" />
 
-          <h6 className="text-crimson-special uppercase font-semibold font-roboto text-[14px] mx-5 md:mx-0">
-            The Quick & Simple
-          </h6>
+              <h6 className="text-crimson-special uppercase font-semibold font-roboto text-[14px] mx-5 md:mx-0">
+                The Quick & Simple
+              </h6>
 
-          <div className="flex flex-col gap-2 mx-5 md:mx-0">
-            <div className="bg-crimson-dark w-fit py-2 px-3 flex flex-row gap-2.5 items-center">
-              <MapPin />
-              <p className="font-roboto font-bold tracking-[5%] text-[12px] uppercase">
-                Auckland, NZ
-              </p>
-            </div>
-            <div className="bg-crimson-dark w-fit py-2 px-3 flex flex-row gap-2.5 items-center">
-              <Mail />
-              <Link
-                href="mailto:ryanbakker@outlook.co.nz"
-                className="font-roboto font-bold tracking-[5%] text-[12px] uppercase"
-              >
-                ryanbakker@outlook.co.nz
-              </Link>
-            </div>
-          </div>
+              <div className="flex flex-col gap-2 mx-5 md:mx-0">
+                {location && (
+                  <div className="bg-crimson-dark w-fit py-2 px-3 flex flex-row gap-2.5 items-center">
+                    <MapPin />
+                    <p className="font-roboto font-bold tracking-[5%] text-[12px] uppercase">
+                      {location}
+                    </p>
+                  </div>
+                )}
+                {email && (
+                  <div className="bg-crimson-dark w-fit py-2 px-3 flex flex-row gap-2.5 items-center">
+                    <Mail />
+                    <Link
+                      href={`mailto:${email}`}
+                      className="font-roboto font-bold tracking-[5%] text-[12px] uppercase"
+                    >
+                      {email}
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="flex flex-col items-end gap-2.5 mx-5 md:mx-0">

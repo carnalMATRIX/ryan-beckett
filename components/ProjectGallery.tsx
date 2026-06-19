@@ -85,7 +85,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
             disabled={images.length <= 1}
             className="rotate-180 rounded-none!"
           >
-            <ChevronRight />
+            <ChevronRight className="text-[#220B3B]" />
           </Button>
 
           <span className="text-sm font-medium text-white/60">
@@ -97,7 +97,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
             size="icon"
             onClick={nextImage}
             disabled={images.length <= 1}
-            className="rounded-none!"
+            className="text-[#220B3B] rounded-none!"
           >
             <ChevronRight />
           </Button>
