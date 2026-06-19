@@ -48,7 +48,7 @@ const crimson = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://beckett.vercel.app"),
   title: {
-    default: "Ryan Beckett // Developer, Designer, Photographer",
+    default: "Ryan Beckett | Developer, Designer, Photographer",
     template: "%s | Ryan Beckett",
   },
   description:
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_NZ",
     url: "https://beckett.vercel.app",
-    title: "Ryan Beckett // Developer, Designer, Photographer",
+    title: "Ryan Beckett | Developer, Designer, Photographer",
     description:
       "Step into the world of Ryan Beckett, a multifaceted creative force. As a developer, designer, and photographer, Ryan crafts digital experiences that captivate and inspire.",
     siteName: "Ryan Beckett",
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ryan Beckett // Developer, Designer, Photographer",
+    title: "Ryan Beckett | Developer, Designer, Photographer",
     description:
       "Explore the portfolio of Ryan Beckett, a developer, designer, and photographer based in Auckland, New Zealand.",
     images: ["/images/hero/hero_bg.JPG"],
