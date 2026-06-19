@@ -117,7 +117,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${roboto.variable} ${robotoFlex.variable} ${crimson.variable} h-full antialiased font-roboto p-0 m-0`}
     >
-      <body className="min-h-screen flex flex-col p-0 m-0 bg-[#010000]! text-white">
+      <body className="min-h-screen flex flex-col p-0 m-0 bg-[#010000]! text-white overflow-x-hidden">
         {children}
       </body>
     </html>

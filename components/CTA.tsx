@@ -16,7 +16,7 @@ function CTA({ location, email, contactDescription }: CTAProps) {
         <div className="flex flex-col gap-5 max-w-full md:max-w-[65%]">
           <SectionHeading number="06" title="Get In Touch" />
 
-          <h3 className="font-outfit uppercase font-black text-[55px] leading-13 mx-5 md:mx-0">
+          <h3 className="font-outfit uppercase font-black text-[45px] md:text-[55px] leading-13 mx-5 md:mx-0">
             Let&apos;s Build
             <br />
             Something

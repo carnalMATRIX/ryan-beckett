@@ -19,7 +19,7 @@ export default function Hero({
   return (
     <section className="relative overflow-hidden max-w-7xl mx-auto">
       <div className="relative z-10 flex flex-col justify-between h-screen p-3 md:p-8">
-        <div className="mt-10 text-left md:text-center">
+        <div className="mt-2 md:mt-10 text-left md:text-center">
           <h1 className="font-outfit uppercase text-7xl lg:text-[100px] text-crimson-muted font-bold tracking-[8%] md:tracking-[15%] leading-15">
             Ryan <span className="text-crimson-bright">Beckett</span>
           </h1>
@@ -50,10 +50,7 @@ export default function Hero({
             {description}
           </p>
 
-          <Socials
-            type="desktop"
-            spotifyProfileUrl={spotifyProfileUrl}
-          />
+          <Socials type="desktop" spotifyProfileUrl={spotifyProfileUrl} />
         </div>
 
         <div className="px-0.5 text-base-light">
@@ -61,10 +58,7 @@ export default function Hero({
             {description}
           </p>
 
-          <Socials
-            type="mobile"
-            spotifyProfileUrl={spotifyProfileUrl}
-          />
+          <Socials type="mobile" spotifyProfileUrl={spotifyProfileUrl} />
 
           <Link
             href="/#about"
