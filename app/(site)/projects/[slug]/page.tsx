@@ -174,8 +174,7 @@ export default async function ProjectSinglePage({ params }: PageProps) {
     <>
       <JsonLd data={projectSchema} />
       <main className="min-h-screen bg-bg-dark text-white py-20 px-4 md:px-8">
-        <div className="max-w-5xl mx-auto flex flex-col items-start">
-          {/* RETURN TO PROJECT ARCHIVE Button */}
+        <article className="max-w-5xl mx-auto flex flex-col items-start">
           <Button
             asChild
             variant="secondary"
@@ -344,7 +343,7 @@ export default async function ProjectSinglePage({ params }: PageProps) {
               </div>
             </div>
           )}
-        </div>
+        </article>
       </main>
       <Footer />
     </>

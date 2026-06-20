@@ -71,7 +71,7 @@ export default function Hero({
 
       <Image
         src="/images/hero/hero_bg.JPG"
-        alt="Hero Background"
+        alt="Ryan Beckett"
         layout="fill"
         objectFit="contain"
         objectPosition="center"
